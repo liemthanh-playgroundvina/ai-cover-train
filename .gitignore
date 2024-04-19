@@ -1,0 +1,37 @@
+!*/.gitkeep
+
+# Ignore compiled executables
+*.exe
+
+# Ignore model files
+*.pt
+*.onnx
+*.pth
+
+# Ignore Python bytecode files
+*.pyc
+
+# Ignore audio files
+*.wav
+*.flac
+*.mp3
+*/train_pid.txt
+*/*.env
+
+# Ignore environment and virtual environment directories
+env/
+venv/
+*venv*
+
+# Ignore cached files
+.cache/
+.idea/
+
+# Ignore specific project directories
+/tracks/
+/lyrics/
+/dataset/
+/models/
+/logs/
+*core.*
+/static
