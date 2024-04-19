@@ -1,6 +1,7 @@
 # AI COVER TRAIN Using RVC V2
-- Link: https://github.com/blaise-tk/RVC_CLI
 
+- Required: 6GB RAM GPU (in RTX 3090ti)
+- Link: https://github.com/blaise-tk/RVC_CLI
 - Queue System using celery(python) + redis + rabbitMQ
 - Image information: Ubuntu 20.04 + Python 3.9
 
