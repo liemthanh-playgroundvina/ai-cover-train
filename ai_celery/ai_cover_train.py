@@ -60,6 +60,9 @@ def ai_cover_train_task(self, task_id: str, data: bytes, task_request: bytes, fi
         files = json.loads(file)
         Celery_RedisClient.started(task_id, data)
 
+        # Check task removed
+        Celery_RedisClient.check_task_removed(task_id)
+
         # Request
         voice_id = request.get('voice_id')
         youtube_link = request.get('youtube_link')
