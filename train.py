@@ -1,7 +1,7 @@
 from main import run_preprocess_script, run_extract_script, run_train_script
 
 
-def train_voice(voice_id=str, audio_dir=str):
+def train_voice(voice_id=str, audio_dir=str, step: int = 50):
     """
     Train a voice
 
@@ -13,7 +13,7 @@ def train_voice(voice_id=str, audio_dir=str):
     """
     model_name = voice_id
     rvc_version = "v2"
-    total_epoch = 50
+    total_epoch = step
     save_every_epoch = total_epoch + 1
     save_only_latest = False
     save_every_weights = False

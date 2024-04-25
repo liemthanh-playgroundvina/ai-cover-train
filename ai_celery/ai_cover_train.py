@@ -40,11 +40,12 @@ def ai_cover_train_task(self, task_id: str, data: bytes, task_request: bytes, fi
 
     task_request example:
         {
-          "voice_id": "Random-id-voice-123",
-          "youtube_link": [
-            "https://www.youtube.com/watch?v=h6RONxjPBf4",
-            "https://www.youtube.com/watch?v=V6pLnQdGA_c"
-          ]
+            "voice_id": "Random-id-voice-123",
+            "youtube_link": [
+                "https://www.youtube.com/watch?v=h6RONxjPBf4",
+                "https://www.youtube.com/watch?v=V6pLnQdGA_c"
+            ],
+            "step": 50,
         }
     file example:
         [
@@ -67,6 +68,7 @@ def ai_cover_train_task(self, task_id: str, data: bytes, task_request: bytes, fi
         voice_id = request.get('voice_id')
         youtube_link = request.get('youtube_link')
         files = [file['filename'] for file in files]
+        step = request.get('step')
         # print(request)
         # print(files)
         print(f"============= Check model existed: Processing ===================")
@@ -92,7 +94,7 @@ def ai_cover_train_task(self, task_id: str, data: bytes, task_request: bytes, fi
         print(f"============= Traing voice {voice_id}-{voice_dir_dataset}: Processing ===================")
         # 3. Training voice model
         try:
-            path_model, path_index = train_voice(voice_id, voice_dir_dataset)
+            path_model, path_index = train_voice(voice_id, voice_dir_dataset, step)
         except Exception as e:
             raise Exception(f"Can train {voice_id} model. Step: 'train_voice', Message: \n{e}")
         print(path_model, path_index)
